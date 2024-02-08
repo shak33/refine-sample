@@ -16,7 +16,8 @@ import { ColorModeContextProvider } from "./contexts/color-mode";
 
 import { MuiInferencer } from "@refinedev/inferencer/mui";
 
-import { PostsListPage } from "./pages/blog/posts/list/index";
+import { PostsListPage } from "./pages/blog/posts/list/";
+import { EditPostPage } from "./pages/blog/posts/edit/";
 
 function App() {
   return (
