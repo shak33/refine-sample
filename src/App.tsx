@@ -16,8 +16,9 @@ import { ColorModeContextProvider } from "./contexts/color-mode";
 
 import { MuiInferencer } from "@refinedev/inferencer/mui";
 
-import { PostsListPage } from "./pages/blog/posts/list/";
+import { ListPostsPage } from "./pages/blog/posts/list/";
 import { EditPostPage } from "./pages/blog/posts/edit/";
+import { ShowPostPage } from "./pages/blog/posts/show";
 
 function App() {
   return (
@@ -45,9 +46,9 @@ function App() {
               >
                 <Routes>
                   <Route index element={<WelcomePage />} />
-                  <Route path="/posts" element={<PostsListPage />} />
-                  <Route path="/posts/show/:id" element={<MuiInferencer />} />
-                  <Route path="/posts/edit/:id" element={<MuiInferencer />} />
+                  <Route path="/posts" element={<ListPostsPage />} />
+                  <Route path="/posts/show/:id" element={<ShowPostPage />} />
+                  <Route path="/posts/edit/:id" element={<EditPostPage />} />
                   <Route path="/posts/create" element={<MuiInferencer />} />
                 </Routes>
                 <RefineKbar />

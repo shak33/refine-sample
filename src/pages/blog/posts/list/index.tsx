@@ -11,7 +11,7 @@ import {
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { IResourceComponentsProps, useMany } from "@refinedev/core";
 
-export const PostsListPage: React.FC<IResourceComponentsProps> = () => {
+export const ListPostsPage: React.FC<IResourceComponentsProps> = () => {
     const { dataGridProps } = useDataGrid();
 
     const { data: categoryData, isLoading: categoryIsLoading } = useMany({
