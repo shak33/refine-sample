@@ -14,6 +14,12 @@ import dataProvider from "@refinedev/simple-rest";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ColorModeContextProvider } from "./contexts/color-mode";
 
+import { MuiInferencer } from "@refinedev/inferencer/mui";
+
+import { ListPostsPage } from "./pages/blog/posts/list/";
+import { EditPostPage } from "./pages/blog/posts/edit/";
+import { ShowPostPage } from "./pages/blog/posts/show";
+
 function App() {
   return (
     <BrowserRouter>
@@ -28,15 +34,22 @@ function App() {
                 notificationProvider={notificationProvider}
                 routerProvider={routerBindings}
                 dataProvider={dataProvider("https://api.fake-rest.refine.dev")}
-                options={{
-                  syncWithLocation: true,
-                  warnWhenUnsavedChanges: true,
-                  useNewQueryKeys: true,
-                  projectId: "Aw2jG9-u7pDdn-D8XY8B",
-                }}
+                resources={[
+                  {
+                    name: "posts",
+                    list: "/posts",
+                    show: "/posts/show/:id",
+                    edit: "posts/edit/:id",
+                    create: "posts/create",
+                  }
+                ]}
               >
                 <Routes>
                   <Route index element={<WelcomePage />} />
+                  <Route path="/posts" element={<ListPostsPage />} />
+                  <Route path="/posts/show/:id" element={<ShowPostPage />} />
+                  <Route path="/posts/edit/:id" element={<EditPostPage />} />
+                  <Route path="/posts/create" element={<MuiInferencer />} />
                 </Routes>
                 <RefineKbar />
                 <UnsavedChangesNotifier />
